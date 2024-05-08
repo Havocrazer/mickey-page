@@ -1,6 +1,7 @@
 import AboutMe from "./components/AboutMe";
 import RepoSection from "./components/RepoSection";
 import ContactBar from "./components/ContactBar";
+import SkillShow from "./components/SkillShow";
 import bg1 from "../public/bg1.png";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       style={{ backgroundImage: `url(${bg1.src})` }}
     >
       <AboutMe />
+      <SkillShow />
       <ContactBar />
       <RepoSection />
     </main>
