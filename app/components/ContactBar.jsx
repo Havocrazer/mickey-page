@@ -16,6 +16,11 @@ const notify = () => toast("Copy to clipboard.");
 
 const ContactBar = () => {
   const [copiedText, setCopiedText] = useState(null);
+  const [downloadClicked, setDownloadClicked] = useState(false);
+
+  const handleDownloadClick = () => {
+    setDownloadClicked(true);
+  };
 
   const handleCopyToClipboard = (text) => {
     navigator.clipboard
@@ -105,16 +110,18 @@ const ContactBar = () => {
         </div>
         <div className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative">
           <div className="group">
-            <Link
+            <a
               href="/resume.pdf"
               download="mickey_resume.pdf"
-              target="_blank"
+              onClick={handleDownloadClick}
+              target={downloadClicked ? "_blank" : ""}
+              rel={downloadClicked ? "noopener noreferrer" : ""}
             >
               <Image src={download} alt="" className="w-[40px] h-[40px]" />
               <p className="absolute font-bold opacity-0 group-hover:opacity-100 bg-white rounded-xl p-[10px] left-[-60px] top-[75px] w-[160px]">
                 download resume
               </p>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
